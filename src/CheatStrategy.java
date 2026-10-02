@@ -1,7 +1,9 @@
-class Cheat implements Strategy
+import java.util.Map;
+
+class CheatStrategy implements Strategy
 {
-    //@override
-    public String getMove(String playerMove)
+    @Override
+    public String getMove(String playerMove, String lastMove, Map tally)
     {
         String computerMove = "";
         switch (playerMove)

@@ -1,9 +1,11 @@
+import java.util.Map;
 import java.util.Random;
 
-public class RandomStrategy {
+class RandomStrategy implements Strategy{
     Random rand = new Random();
 
-    public String getMove(String playerMove) {
+    @Override
+    public String getMove(String playerMove, String lastMove, Map tally) {
         int randInt = rand.nextInt(3) + 1;
 
         String computerMove = "";

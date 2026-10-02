@@ -1,3 +1,5 @@
+import java.util.Map;
+
 public interface Strategy {
-    public String getMove(String playerMove);
+    String getMove(String playerMove, String lastMove, Map tally);
 }
