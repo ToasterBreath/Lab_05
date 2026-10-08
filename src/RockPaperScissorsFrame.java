@@ -16,7 +16,11 @@ public class RockPaperScissorsFrame extends JFrame {
     Map<String, Integer> tally = new HashMap<>();
 
     strategy Strat = new strategy();
+    /*
+    Creates main frame.
 
+    This forms the base of the gui.
+    */
     public RockPaperScissorsFrame(){
         mainPnl = new JPanel();
         mainPnl.setLayout(new BorderLayout());
@@ -35,6 +39,11 @@ public class RockPaperScissorsFrame extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
     }
+    /**
+     * Creates title panel.
+     *
+     * Assigns it to north of main frame
+     */
     public void createTitlePanel(){
         titlePnl = new JPanel();
         titleLbl = new JLabel("Rock Paper Scissors Game", JLabel.CENTER);
@@ -45,6 +54,12 @@ public class RockPaperScissorsFrame extends JFrame {
         mainPnl.add(titlePnl, BorderLayout.NORTH);
         titlePnl.setVisible(true);
     }
+    /**
+     * Creates wrapper panel.
+     *
+     * Wraps together button and stats panel.
+     * Assigns it to the center of main frame.
+     */
     public void createWrapperPanel(){
         wrapperPnl = new JPanel();
         wrapperPnl.setLayout(new BorderLayout());
@@ -53,6 +68,12 @@ public class RockPaperScissorsFrame extends JFrame {
         mainPnl.add(wrapperPnl, BorderLayout.CENTER);
         wrapperPnl.setVisible(true);
     }
+    /**
+     * Creates Button panel.
+     *
+     * This panel handles the main Rock Paper Scissor buttons along with the quit button.
+     * Assigned to the south of the wrapper panel.
+     */
     public void createButtonPanel(){
         btnPnl = new JPanel();
         btnPnl.setLayout(new GridLayout(2,3,20,20));
@@ -109,6 +130,12 @@ public class RockPaperScissorsFrame extends JFrame {
             lastMove = "S";
         });
     }
+    /**
+     * Creates tje stats panel.
+     *
+     * This panel handles the win and tie counts.
+     * Assigned to the north of the wrapper panel.
+     */
     public void createStatsPanel(){
         statsPnl = new JPanel();
         statsPnl.setLayout(new GridLayout(2,3,20,20));
@@ -142,6 +169,11 @@ public class RockPaperScissorsFrame extends JFrame {
         statsPnl.setVisible(true);
 
     }
+    /**
+     * Creates history panel.
+     *
+     * This panel shows the game history and bot reason for choosing what the bot chose.
+     */
     public void createHistoryPanel(){
         historyPnl = new JPanel();
         historyTA = new JTextArea(15,50);
@@ -151,6 +183,14 @@ public class RockPaperScissorsFrame extends JFrame {
         historyPnl.add(scroller);
         wrapperPnl.add(historyPnl, BorderLayout.CENTER);
     }
+    /**
+     * This determines the winner of the game with the given inputs from computer and player.
+     *
+     * It just uses a nested switch case to determine the outcome.
+     *
+     * @param player The single letter R, P, or S, representing the player's move
+     * @param computer The single letter R, P, or S, representing the computer's move
+     */
     public void determineWinner(String player, String computer){
         switch (player){
             case "R":
